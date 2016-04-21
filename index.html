@@ -3,11 +3,52 @@
   <head>
     <meta charset="utf-8">
     <title>Insertion Sort Visualizer</title>
-    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   </head>
   <body>
     <div class="app-container">
+      <h2>Visualizing Insertion Sort <small>&mdash; April 20, 2016</small></h2>
+      <p>Use the right arrow key to go through insertion sort step-by-step.</p>
+      <p>Either use the default data provided, or enter your own below.</p>
+      <div class="input-group" style="width: 600px">
+        <input id="js-custom-data-input" type="text" class="form-control" placeholder="Use your own data. Enter a comma-separated list of positive integers.">
+        <span class="input-group-btn">
+          <button id="js-custom-data-btn" class="btn btn-default no-outline" type="button">Use Custom Data</button>
+        </span>
+      </div>
+      <br>
+      <pre class="prettyprint">const data = [10, 6, 1, 7, 11, 5];
 
+// outer loop
+// start with 1 index and work your way up
+// the value at this index is the value to be sorted
+for (let i = 1; i < data.length; i++) {
+
+  // cache value to be sorted
+  const valueToSort = data[i];
+
+  // inner loop
+  // start with outer loop index and work your way down
+  // looking for index at which to insert value to be sorted
+  // break out of inner loop after this value has been inserted
+  for (let j = i; j > -1; j--) {
+
+    // if inner loop has reached 0 index
+    // or if preceding value is less than value to be sorted
+    // insert value to be sorted at this index
+    if (j === 0 || data[j - 1] < valueToSort) {
+      data[j] = valueToSort;
+      break;
+    }
+
+    // else take value at preceding index
+    // and shift it to inner loop index
+    else data[j] = data[j - 1];
+  }
+}</pre>
+      <svg id="insertion-sort-visualization"></svg>
     </div>
     <script src="bundle.js" charset="utf-8"></script>
   </body>

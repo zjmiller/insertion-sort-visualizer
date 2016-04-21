@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+}
+
+.app-container {
+  height: 400px;
+  margin: 50px auto;
+  width: 1200px;
+}
+
+.app-container pre.prettyprint {
+  display: inline-block;
+  padding: 5px;
+  width: 550px;
+}
+
+.axis path {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.axis line {
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+#insertion-sort-visualization {
+  box-sizing: content-box;
+}
+
+.btn.btn-default {
+  background-color: #f3f3f3;
+}
+
+.btn.btn-default:hover {
+  background-color: #eee;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.no-outline {
+  outline: none !important;
+}
